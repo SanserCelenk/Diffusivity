@@ -1,0 +1,51 @@
+DEFINE_DIFFUSIVITY(scalar_diff, c, t, i)
+{
+
+real D;
+
+// Define all scalars
+
+real phi,C1,C2,C3,C4;
+
+
+
+
+switch (i)
+{
+
+case 0:
+
+C1 = C_UDSI(c,t,1) ;
+C2 = C_UDSI(c,t,2) ;
+C3 = C_UDSI(c,t,3) ;
+C4 = C_UDSI(c,t,4) ;
+
+D = F*F/(R*T)*(z1*z1*C1 + z2*z2*C2 + z3*z3*C3 + z4*z4*C4);
+break;
+
+case 1:
+
+D = D1;
+break;
+
+case 2:
+
+D = D2;
+break;
+
+case 3:
+
+D = D3;
+break;
+
+case 4:
+
+D = D4;
+break;
+
+
+
+}
+
+return D;
+}
